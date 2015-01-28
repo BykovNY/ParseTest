@@ -35,6 +35,8 @@ public class MainActivity extends ActionBarActivity {
         mainTv = (TextView) findViewById(R.id.main_tv);
         mainLv = (ListView) findViewById(R.id.main_lv);
 
+        mainLv.setDividerHeight(0);
+
         new NewThread().execute();
 
         adapter = new ArrayAdapter<String>(this,R.layout.list_item,R.id.stat_name,statList);
@@ -97,7 +99,7 @@ public class MainActivity extends ActionBarActivity {
         for (int i = 0; i < temp_arr.length; i++){
             temp_arr[i] = temp_arr[i].replaceAll("<b>","").replaceAll("</b>","");
             if (temp_arr[i] != null && !temp_arr[i].trim().equals(""))
-                statList.add(temp_arr[i]);
+                statList.add(temp_arr[i].trim());
             Log.d(TAG,temp_arr[i]);
         }
 
